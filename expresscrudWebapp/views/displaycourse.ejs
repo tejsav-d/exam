@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/addcourseform">
+        <button type="submit" name="btnadd" id="add" value="add">Add new course</button>
+    </form>
+    <table border="2">
+        <tr><th>course id</th>
+            <th>course name</th>
+            <th>fees</th>
+            <th>duration</th>
+            <th>action</th>
+        </tr>
+        <% for(var i=0;i<proddata.length;i++){%>
+            <tr>
+                <td><%=proddata[i].cid%></td>
+                <td><%=proddata[i].cname%></td>
+                <td><%=proddata[i].fees%></td>
+                <td><%=proddata[i].duration%></td>
+                <td>
+                    <a href="deletecourse/<%=proddata[i].cid%>">delete</a>/
+                    <a href="editcourse/<%=proddata[i].cid%>">edit</a>
+                </td>
+            </tr>
+        <%}%>
+    </table>
+    <form action="/logout">
+        <button type="submit" name="btnadd" id="logot" value="logout">Logout</button>
+    </form>
+</body>
+</html>

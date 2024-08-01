@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/updatecourse" method="post">
+        course id : <input type="text" name="cid" id="cid" value="<%=prod.cid%>" readonly><br>
+        course name:<input type="text" name="cname" id="cname" value="<%=prod.cname%>"><br>
+        fees: <input type="text" name="fees" id="fees"
+        value="<%=prod.fees%>"><br>
+        duration: <input type="text" name="duration" id="duration" value="<%=prod.duration%>"><br>
+        <button type="submit" name="btn" id="btn">update course</button>
+    </form>
+</body>
+</html>

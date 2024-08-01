@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validatefees(id,errid){
+            var f=document.getElementById(id).value;
+            if(f!=0){
+                document.getElementById(errid).innerHTML="";
+                return true;
+            }else if(f==0){
+                document.getElementById(errid).innerHTML="fees should not be zero!!";
+                return false;
+            }
+            
+        }
+        function validateDuration(id,errid){
+            var d=document.getElementById(id).value;
+            if(d!=0){
+                document.getElementById(errid).innerHTML="";
+                return true;
+            }else if(d==0)
+            {
+                document.getElementById(errid).innerHTML="duration should not 0!!";
+                return false;
+            }
+        }
+        function validateName(id,errid){
+            var n=document.getElementById(id).value;
+            var reg=/\d/;
+            if(reg.test(n)){
+                document.getElementById(errid).innerHTML="name should not contain digit!!";
+                return false;
+            }else{
+                document.getElementById(errid).innerHTML="";
+                return true;
+            
+            }  
+        }
+        function validateData(){
+            var flag1=validatefees("fees","errfees")
+            var flag2=validateDuration("duration","errDuration")
+            var flag3=validateName("name","errName");
+            return flag1&&flag2&&flag3;
+        }
+    </script>
+</head>
+<body>
+ <form action="insertcourse" method="post" onsubmit="return validateData()">
+    id: <input type="text" id="id" name="cid" ><br>
+    Name:<input type="text" id="name" name="cname"><br>
+    Fees:<input type="text" id="fees" name="fees"><br>
+    Duration:<input type="text" id="duration" name="duration"><br>
+    <input type="submit" id="btn" name="btn" value="Submit"><br>
+        <span id="errfees"></span><br>
+        <span id="errDuration"></span>
+        <span id="errName"></span>
+ </form>
+</body>
+</html>
